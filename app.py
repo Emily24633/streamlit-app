@@ -19,9 +19,9 @@ if 'message' not in st.session_state:
 
 # button
 if st.button("Play Note"):
-    audio_file = open(f"project folder/{st.session_state.target}.wave.mp3", "rb")  # 假设音频文件是 .mp3 格式
-    st.audio(audio_file, format="audio/mp3")
-    st.session_state.message = ""  # 清空提示信息
+    audio_file = open(f"project folder/{st.session_state.target}.wave.mp3", "rb")  # audio.mp3
+    st.radio(audio_file, format="audio/mp3")
+    st.session_state.message = ""  # clear message
 
 # user's input
 guess = st.number_input("Please enter the musical note you guessed (1-7):", min_value=1, max_value=7, step=1)
@@ -38,6 +38,7 @@ if st.button("Submit"):
 
 # display result
 st.write(st.session_state.message)
+
 
 
 
