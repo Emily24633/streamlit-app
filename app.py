@@ -19,7 +19,7 @@ if 'message' not in st.session_state:
 
 # button
 if st.button("Play Note"):
-    audio_file = open(f"project_folder/{st.session_state.target}.mp3", "rb")  # 假设音频文件是 .mp3 格式
+    audio_file = open(f"project folder/{st.session_state.target}.mp3", "rb")  # 假设音频文件是 .mp3 格式
     st.audio(audio_file, format="audio/mp3")
     st.session_state.message = ""  # 清空提示信息
 
@@ -38,6 +38,7 @@ if st.button("Submit"):
 
 # display result
 st.write(st.session_state.message)
+
 
 
 
