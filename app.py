@@ -20,7 +20,7 @@ if 'message' not in st.session_state:
 # button
 play_note=st.radio("Play Note", ["Select", "Play"])
 
-if play_note="play":
+if play_note=="play":
     audio_file = open(f"project folder/{st.session_state.target}.wave.mp3", "rb")  # audio.mp3
     st.audio(audio_file, format="audio/mp3")
     st.session_state.message = ""  # clear message
@@ -40,6 +40,7 @@ if st.button("Submit"):
 
 # display result
 st.write(st.session_state.message)
+
 
 
 
