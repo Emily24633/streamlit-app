@@ -17,6 +17,9 @@ if 'target' not in st.session_state:
 if 'message' not in st.session_state:
     st.session_state.message = ""
 
+if 'played' not in st.session_state:
+    st.session_state.played = False
+    
 # button
 if st.button("Play Note") or st.session_state.played:
     st.session_state.played = True
@@ -39,6 +42,7 @@ if st.button("Submit"):
 
 # display result
 st.write(st.session_state.message)
+
 
 
 
