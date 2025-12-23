@@ -9,7 +9,7 @@ if name:
 
 import random
 
-st.title("音符听辨小游戏 🎵")
+st.title("Note recognition game 🎵")
 
 # 初始化随机音符
 if 'target' not in st.session_state:
@@ -18,24 +18,25 @@ if 'message' not in st.session_state:
     st.session_state.message = ""
 
 # 播放音符按钮
-if st.button("播放音符"):
+if st.button("play note"):
     audio_file = open(f"project folder/{st.session_state.target}.wave.mp3", "rb")
     st.audio(audio_file, format="audio/mp3")
     st.session_state.message = ""
 
 # 用户输入猜测
-guess = st.number_input("请输入你猜的音符 (1-7):", min_value=1, max_value=7, step=1)
+guess = st.number_input("Please enter the musical note you guessed (1-7):", min_value=1, max_value=7, step=1)
 
-if st.button("提交答案"):
+if st.button("submit"):
     if guess < st.session_state.target:
-        st.session_state.message = "有点低哦，试试高一点的吧！"
+        st.session_state.message = "It's a bit low, try a higher one！"
     elif guess > st.session_state.target:
-        st.session_state.message = "有点高哦，试试低一点的吧！"
+        st.session_state.message = "It's a bit high, try a lower one！"
     else:
-        st.session_state.message = "恭喜答对了 🎉！再来一次请点击播放音符。"
+        st.session_state.message = "Congratulations on answering correctly 🎉! To try again, please click to play the musical note."
         st.session_state.target = random.randint(1, 7)
 
 st.write(st.session_state.message)
+
 
 
 
