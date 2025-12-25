@@ -1,0 +1,9 @@
+v = ' '
+
+print('EEEEE' + v + 'W' + v*3 + 'W')
+print('E    ' + v + 'W' + v*3 + 'W')
+print('E    ' + v + 'W   W')
+print('EEE  ' + v + 'W W W')
+print('E    ' + v + 'WW WW')
+print('E    ' + v + 'WW WW')
+print('EEEEE' + v + 'W   W')
