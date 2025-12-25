@@ -1,0 +1,21 @@
+#THis code can calculate the maximum, minimum, and average values ​​based on the input data.
+print("Enter numbers, separating each number with a space:")
+X=list(map(int,input().split()))
+
+List=X
+
+locate_max=List[List.index(max(List))]
+locate_min=List[List.index(min(List))]
+
+all_num=sorted(List)
+
+R=int(len(List)/2-1)
+
+first=int(all_num[R])
+last=int(all_num[R+1])
+
+if len(List)%2!=0:#odd
+    List=List[len(List)//2-1]
+elif len(List)%2==0:#even
+    List=(float((first+last)/2))
+print("maximum value:",locate_max,"minimum value:",locate_min,"The average:",List)
