@@ -1,11 +1,9 @@
 #THis code can calculate the maximum, minimum, and average values ​​based on the input data.
 print("Enter numbers, separating each number with a space:")
-X=list(map(int,input().split()))
+List=list(map(int,input().split()))
 
-List=X
-
-locate_max=List[List.index(max(List))]
-locate_min=List[List.index(min(List))]
+locate_max=max(List)#max(List)==List[List.index(max(List))]
+locate_min=min(List)
 
 all_num=sorted(List)
 
