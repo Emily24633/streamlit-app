@@ -1,1 +1,25 @@
+import re
+import unicodedata
 
+Path=open('your_chosen_drive:/file/file/file.txt','r')#for the last one it need to end with .txt
+Read_txt=Path.readlines()
+all_words=[]
+
+for words in Read_txt:
+    space=(' ')
+    words = unicodedata.normalize('NFKC', words)
+    words = re.sub(r"[^\w\s]", " ", words)
+
+    #if you dont want to import re and unicodata use this
+    '''for i in ['.', '!', '?', ':', ',', "'", '"', '"',' ','(',')','[',']','=', '—', '–', '-']:
+        words=words.replace(i,space)'''
+
+    line_words=words.split()
+    all_words.extend(line_words)
+
+all_words=list(set(all_words))
+all_words.sort()
+
+result=open('d:/下载内容/result.txt','w')
+result.write('\n'.join(all_words))
+result.close()#essential otherwise it will always be opreating not  printing the result
