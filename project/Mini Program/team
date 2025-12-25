@@ -1,0 +1,52 @@
+a, b, c = map(int, input(). split())
+rank=[]
+num1=a
+List=[]
+Team=a
+result=0
+dict={}
+for i in range(a):
+    integers = input().strip()
+    rank.append([integers,i+1])
+    dict[f'Team{i + 1}'] = i+1
+
+Counts = sum(team[0].count('P') for team in rank)
+for i in range(Counts):
+    num = 0
+    variable = rank[-1][0]
+
+    variable1 = list(variable)
+    integer2=input()
+    letter = "y"
+    total1 = 0
+    for item in integer2:
+        if isinstance(item, str):
+            total1 += item.count(letter)
+            if total1 == 3:
+                result=0
+            elif total1 == 0:
+                result = 0
+            if total1 > 3:
+                result=total1-3
+                if result >= num1 or num1 ==2:
+                    result = a
+    while num < len(variable1) and num <= b:
+        if not 'P' in variable1:
+            num+=1
+            continue
+        elif variable1[num] == 'P':
+            p_idx = variable1.index('P')
+            chant = integer2
+            variable1[p_idx] = 'A' if 'Aaayyy' in chant else 'R'
+            pop = rank.pop(-1)
+            rank.insert (max(0, len(rank) - result),["".join(variable1), pop[1]])
+            team_number = pop[1]
+            current_pos = next(i for i, t in enumerate(rank) if t[1] == team_number)
+            dict[f'Team{team_number}'] = current_pos + 1
+            index = c
+            break
+        num+=1
+for random in range(len(rank)):
+    if rank[random][1] == index:
+        print(random+1)
+        break
