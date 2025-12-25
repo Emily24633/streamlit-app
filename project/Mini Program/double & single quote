@@ -1,0 +1,2 @@
+print("""This string contains a "double quote" and also a 'single quote'.""")
+print("""She said.'Do not cross the line.'""")
