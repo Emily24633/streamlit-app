@@ -25,3 +25,34 @@ all_words.sort()
 result=open('your_chosen_drive:/file/file.txt','w')#Specify the result storage path
 result.write('\n'.join(all_words))
 result.close()#essential otherwise it will always be opreating not  printing the result
+
+#fixed version
+import re
+import unicodedata
+
+def replace(texts):
+    texts = unicodedata.normalize('NFKC', texts)
+    texts = re.sub(r"[^\w\s]", " ", texts)#replace all the punctuation to ' '
+    return " ".join(texts.split())
+
+with open('your_chosen_drive:/file/file/file.txt', 'r', encoding='utf-8') as f:#Specify the path to the file to be converted. The file to be opened must end with .txt
+    Read_txt = f.readlines()#Line by line reading the string
+
+all_words=[]
+Unnecessary_words=(set("""and old""".split()))#Paste the words you don't want to include in the vocabulary list into quotation marks, separated by spaces.
+
+for line in Read_txt:
+    line=replace(line)
+    words=line.split()
+    all_words.extend(words)
+
+    #if you dont want to import re and unicodata use this instead of replace()
+'''for i in ['.', '!', '?', ':', ',', "'", '"', '"',' ','(',')','[',']','=', '—', '–', '-']:
+words=words.replace(i,space)'''
+
+
+all_words=sorted((set(all_words)-Unnecessary_words))
+
+
+with open('your_chosen_drive:/file/file/file.txt', 'w', encoding='utf-8') as result:
+    result.write('\n'.join(all_words))
