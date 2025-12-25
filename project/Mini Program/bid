@@ -50,3 +50,32 @@ for key in dict1:
             print(key,"$",dict1[key][Code][-1],dict1[key][Code][0][0:3])
         else:
             print(key,f"Sold but the school must pay {dict1[key][Code][0][0:3]}",f"${abs(dict1[key][Code][-1])}")
+
+#
+data = {}
+
+while True:
+    line = input()
+    if line == "Done":
+        break
+
+    name, code, number = line.split()
+    number = int(number)
+
+    if name not in data:
+        data[name] = []
+
+    data[name].append((code, number))
+
+# Print results
+for name in sorted(data):
+    # pick the (code, number) pair with the highest number
+    code, value = max(data[name], key=lambda x: x[1])#means: take item x return its second value (x[1]):Finds tuple with alphabetically largest first value for each tuple x
+
+compare using x[1] (the number)
+Finds tuple with largest number
+
+    if value >= 0:
+        print(name, "$", value, code)
+    else:
+        print(name, f"Sold but the school must pay {code}", f"${abs(value)}")
