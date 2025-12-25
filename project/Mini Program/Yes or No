@@ -1,0 +1,3 @@
+def is_passing(score: int) -> bool:
+    return score >= 50
+print(is_passing(100))
