@@ -1,0 +1,5 @@
+import winsound
+import os
+winsound.Beep(6000,1000)#The numbers can be adjusted.
+
+os.system('start drive:/file/file.mp3')#specify the path to the mp3 file
