@@ -1,1 +1,50 @@
-hi
+import webbrowser
+import os
+import keyboard
+import time
+
+List = ['math', 'write', 'code', 'start', 'close', 'web','sleep']
+Sites = [''
+    , ''
+    , 'https://...'
+    , 'start d:/Demo/resource/Testing/Welcome.txt'
+    , ''
+    , '','']
+
+List1 = dict.fromkeys(List, 0)
+
+def program(variable):
+
+    if variable == 'start':
+        os.system(Sites[3])
+
+    chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+    while not List1[variable] == 'c':
+
+        if variable=='close' and signs=='o':
+            keyboard.press_and_release('win+d')
+            time.sleep(0.1)
+
+        elif variable=='sleep' and signs=='yes':
+            keyboard.press_and_release('control+shift+w')
+            time.sleep(0.1)
+
+        variable, signs = input().split()
+        List1[variable] = signs
+        print(List1)
+
+        url = Sites[List.index(variable)]
+
+        if List1['math'] == 'p' or List1['code'] == 'o' or List1['write'] == 'w' or List1['web'] == 'n':
+            try:
+                webbrowser.register(
+                    'chrome',
+                    None,
+                    webbrowser.BackgroundBrowser(chrome_path)
+                )
+                webbrowser.get('chrome').open_new_tab(url)
+            except webbrowser.Error:
+                webbrowser.open_new_tab(url)
+
+program('start')
